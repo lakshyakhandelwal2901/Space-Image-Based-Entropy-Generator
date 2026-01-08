@@ -41,29 +41,36 @@ This project generates cryptographically secure random numbers by extracting ent
 
 - Python 3.11+
 - Node.js 18+ (for frontend)
-- Docker & Docker Compose (for Redis)
+- Docker & Docker Compose
 - Git
 
-### Start Both Services (30 seconds)
+### Start Both Services - One Command! ⚡
 
-**Option 1: Automated (Recommended)**
+**Option 1: Automated Single Script (Recommended)**
 ```bash
 # Clone repository
 git clone <repository-url>
 cd Space-Image-Based-Entropy-Generator-True-Randomness-as-a-Service-
 
-# Start backend
-python -m app.main &
-
-# Start frontend (in another terminal)
-cd website
-npm install
-npm run dev
+# Run everything with one command
+python3 run.py
 ```
 
-**Option 2: With Docker Compose**
+This single script will:
+- ✅ Start Redis + Backend (Docker containers)
+- ✅ Start Frontend (Vite dev server)
+- ✅ Wait for all services to be healthy
+- ✅ Display service URLs and status
+- ✅ Gracefully shutdown all services on Ctrl+C
+
+**Option 2: Manual Docker Compose**
 ```bash
+# Start backend services
 docker-compose up -d
+
+# Start frontend (in another terminal)
+cd website/solar-entropy-api-main/solar-entropy-api-main
+npm run dev
 ```
 
 ### Access the Services
